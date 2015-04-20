@@ -1,9 +1,13 @@
-player1 = "larry"
-health1 = 60
+def say_hello(name, health=100)
+  "I'm #{name.capitalize} with a health of #{health} as of #{time}."
+end
 
-puts "#{player1.capitalize} has a health of #{health1}"
+def time
+  current_time = Time.new
+  current_time.strftime("%I:%M:%S")
+end
 
-player2 = "curly"
-health2 = 125
+puts say_hello("Moe")
+puts say_hello("larry", 60)
 
-puts "#{player2.upcase} has a health of #{health2}"
+
