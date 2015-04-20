@@ -1,13 +1,38 @@
-def say_hello(name, health=100)
-  "I'm #{name.capitalize} with a health of #{health} as of #{time}."
+class Player
+  attr_accessor :name
+  attr_reader :health
+
+  def initialize(name, health=100)
+    @name = name.capitalize
+    @health = health
+  end
+
+  def to_s
+    "I'm #{@name} with a health of #{@health} and a score of #{score}."
+  end
+
+  def blam
+    @health -= 10 
+    puts "#{@name} got blammed!"
+  end
+
+  def w00t
+    @health += 15
+    puts "#{@name} got w00ted!"
+  end
+
+  def score
+    @health + @name.length
+  end
 end
 
-def time
-  current_time = Time.new
-  current_time.strftime("%I:%M:%S")
-end
 
-puts say_hello("Moe")
-puts say_hello("larry", 60)
+player1 = Player.new("moe")
+puts player1
 
+player2 = Player.new("larry", 60)
+puts player2.name = "Lawrence"
 
+player3 = Player.new("curly", 125)
+player3.w00t
+puts player3.health
