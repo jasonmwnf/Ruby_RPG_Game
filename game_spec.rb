@@ -12,19 +12,19 @@ describe Game do
 
   it "increases player health by 15 if high number is rolled" do 
     allow_any_instance_of(Die).to receive(:roll).and_return(5)
-    @game.play 
-    expect(@player.health).to eq(@initial_health + 15)
+    @game.play(2)
+    expect(@player.health).to eq(@initial_health + (15 * 2))
   end
 
   it "does nothing to a players health if a medium number is rolled" do 
     allow_any_instance_of(Die).to receive(:roll).and_return(3)
-    @game.play
+    @game.play(2)
     expect(@player.health).to eq(@initial_health)
   end
 
   it "decreases player health by 10 if a low number is rolled" do 
     allow_any_instance_of(Die).to receive(:roll).and_return(1)
-    @game.play
-    expect(@player.health).to eq(@initial_health - 10)
+    @game.play(2)
+    expect(@player.health).to eq(@initial_health - (10 * 2))
   end
 end
